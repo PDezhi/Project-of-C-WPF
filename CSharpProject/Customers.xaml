@@ -1,0 +1,50 @@
+﻿<Window x:Class="CSharpProject.Customers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpProject"
+        mc:Ignorable="d"
+        Title="Customers" Height="450" Width="800">
+    <Grid Width="525" Background="Bisque" Margin="134,34,134,37">
+ 
+        <!--Button as a Link button using style-->
+        <!--end Button as a Link button using style-->
+        <Grid Margin="23,0,37,10" Background="White" Height="290" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="252*" />
+                <!--   <RowDefinition Height="12*" />-->
+            </Grid.RowDefinitions>
+            <TextBlock Height="20" HorizontalAlignment="Left" Margin="67,0,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="247"  OpacityMask="Crimson" Foreground="#FFE5572C" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockName" Text="Name:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,50,0,0" Name="textBlockAddress" Text="Address:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,82,0,0" Name="textBlockEmail" Text="Email:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,112,0,0" Name="textBlockZip" Text="Zip:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,142,0,0" Name="textBlockPhone" Text="Phone:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,178,0,0" Name="textBlockUserName" Text="User Name:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="66,208,0,0" Name="passwordBlockBox1" Text="Password:" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" >
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="6.843"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="1.38"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="65,231,0,0" Name="passwordBlockBoxConfirm" Text="passwordConfirm:" VerticalAlignment="Top" Width="110" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="textBoxName" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,50,0,0" Name="textBoxAddress" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,80,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,0,0,149" Name="textBoxZip" VerticalAlignment="Bottom" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,0,0,113" Name="textBoxPhone" VerticalAlignment="Bottom" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,0,0,87" Name="textBoxUserName" VerticalAlignment="Bottom" Width="222" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,205,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,232,0,0" Name="passwordBoxConfirm" VerticalAlignment="Top" Width="222" />
+
+            <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="128,261,0,0" Name="Submit" VerticalAlignment="Top" Width="70" Click="Submit_Click" />
+            <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="204,261,0,0" Name="button2" VerticalAlignment="Top" Width="70" Click="button2_Click" />
+            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,261,115,0" Name="button3" VerticalAlignment="Top" Width="70" Click="button3_Click" />
+        </Grid>
+    </Grid>
+</Window>

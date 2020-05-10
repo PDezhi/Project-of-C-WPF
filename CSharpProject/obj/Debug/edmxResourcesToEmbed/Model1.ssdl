@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Shop_OnLineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="productId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="zip" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="customerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="fk_MemberCarts_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MemberCarts_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MembersUsers_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Shop_OnLineModelStoreContainer">
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="Members" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="Members" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="Members" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="Products" store:Type="Tables" />
+    <AssociationSet Name="fk_MemberCarts_Products" Association="Self.fk_MemberCarts_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MemberCarts_Users" Association="Self.fk_MemberCarts_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MembersUsers_Customers" Association="Self.fk_MembersUsers_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
